@@ -108,7 +108,7 @@ def handle_selection(selection):
         original_dir = os.getcwd()
 
         # Change to the directory where 'xss0rRecon.sh' is located
-        os.chdir("/tools/xss0rRecon")
+        os.chdir(os.path.join(original_dir, 'tools', 'xss0rRecon'))
 
         # Execute the script
         xss0rRecon = "./xss0rRecon.sh"
@@ -127,8 +127,8 @@ def handle_selection(selection):
         # Save the current directory
         original_dir = os.getcwd()
 
-        # Change to the directory where 'lostsec.py' is located
-        os.chdir("/tools/lostools")
+        # Change to the directory where 'xss0rRecon.sh' is located
+        os.chdir(os.path.join(original_dir, 'tools', 'lostools'))
 
         # Execute the script
         Lostsec = "python3 lostsec.py"
