@@ -1,0 +1,5 @@
+app:  
+  identifier: "lostsec"  
+  repository: "https://github.com/coffinsp/lostools"  
+  directory: "/root/lipWn/tools/lostools"  
+  executable: "lostsec.py"
