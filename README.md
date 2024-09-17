@@ -10,7 +10,5 @@
 <p align="center">
     <a href="https://yourprojectwebsite.com" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/000000/terminal.png" alt="Terminal Icon" style="width: 80px; height: auto; transition: transform 0.3s ease;"/>
-        <br/>
-        <span style="font-size: 20px; font-weight: bold; color: #333;">liPWN: The Ultimate Security Tool</span>
     </a>
 </p>
