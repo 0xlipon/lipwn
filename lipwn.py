@@ -108,7 +108,7 @@ def handle_selection(selection):
         original_dir = os.getcwd()
 
         # Change to the directory where 'xss0rRecon.sh' is located
-        os.chdir("/root/lipWn/tools/xss0rRecon")
+        os.chdir("/tools/xss0rRecon")
 
         # Execute the script
         xss0rRecon = "./xss0rRecon.sh"
@@ -128,7 +128,7 @@ def handle_selection(selection):
         original_dir = os.getcwd()
 
         # Change to the directory where 'lostsec.py' is located
-        os.chdir("/root/lipWn/tools/lostools")
+        os.chdir("/tools/lostools")
 
         # Execute the script
         Lostsec = "python3 lostsec.py"
@@ -143,7 +143,7 @@ def handle_selection(selection):
     elif selection == '3':
         clear_screen()
         print(Color.GREEN + "[+] Launching ComingSoon...")
-        ComingSoon = "python3 /root/lipWn/tools/lostools/lostsec.py"
+        ComingSoon = "python3 /tools/lostools/new.py"
         subprocess.run(ComingSoon, shell=True)
 
     elif selection == '4':
