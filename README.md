@@ -9,6 +9,6 @@
 
 <p align="center">
     <a href="https://yourprojectwebsite.com" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/50/000000/terminal.png" alt="Terminal Icon" style="width: 80px; height: auto; transition: transform 0.3s ease;"/>
+        <img src="https://icons.iconarchive.com/icons/alecive/flatwoken/256/Apps-Terminal-Pc-104-icon.png" alt="Terminal Icon" style="width: 80px; height: auto; transition: transform 0.3s ease;"/>
     </a>
 </p>
