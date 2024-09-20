@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/snowden-pc/lipwn/refs/heads/main/lipwn.png" alt="Screenshot (lipwn)" style="margin-bottom: 20px;" />
+    <img src="https://raw.githubusercontent.com/snowden-pc/lipwn/refs/heads/main/lipwn.png" alt="Screenshot (lipwn)" style="display: block; margin: 0 auto; margin-bottom: 20px;" />
 </div>
 
 <p style="text-align: center;">
