@@ -18,7 +18,7 @@
 ### Clone the repository
 
 ```bash
-git clone https://github.com/0xlipon/lipwn
+git clone https://github.com/0xlipon/lipwn.git
 cd lipwn
 ```
 ## Running the Script
@@ -26,7 +26,7 @@ cd lipwn
 To run the script, use the following command:
 
 ```bash
-python lipwn.py
+python3 lipwn.py
 ```
 
 ## Disclaimer
