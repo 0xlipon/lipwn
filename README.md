@@ -21,12 +21,16 @@
 git clone https://github.com/0xlipon/lipwn.git
 cd lipwn
 ```
+
+Give permission:
+```bash
+chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
+```
 ## Running the Script
 
 To run the script, use the following command:
 
 ```bash
-chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 python3 lipwn.py
 ```
 
