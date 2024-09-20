@@ -1,4 +1,4 @@
-![liPWN](https://img.shields.io/badge/liPWN-%E2%9C%94-green) 
+![Screenshot (lipwn)](https://github.com/user-attachments/assets/c5da3434-b021-4767-b470-6f3bf48fbb8a)
 
 <p align="center">
     <a href="https://yourprojectwebsite.com" target="_blank">
