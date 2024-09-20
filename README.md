@@ -22,7 +22,7 @@ git clone https://github.com/0xlipon/lipwn.git
 cd lipwn
 ```
 
-### Give permission:
+### Give permission
 ```bash
 chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 ```
