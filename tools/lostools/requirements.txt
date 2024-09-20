@@ -1,8 +1,0 @@
-webdriver_manager
-selenium
-aiohttp
-beautifulsoup4
-colorama
-rich
-requests
-prompt_toolkit
