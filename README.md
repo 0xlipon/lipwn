@@ -21,11 +21,17 @@
 git clone https://github.com/0xlipon/lipwn.git
 cd lipwn
 ```
+### Requirements
+
+```bash
+pip3 install -r requirements.txt
+```
 
 ### Give permission
 ```bash
 chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 ```
+
 ## Running the Script
 
 To run the script, use the following command:
