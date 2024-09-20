@@ -1,12 +1,10 @@
 <div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/snowden-pc/lipwn/refs/heads/main/lipwn.png" alt="Screenshot (lipwn)" />
+    <img src="https://raw.githubusercontent.com/snowden-pc/lipwn/refs/heads/main/lipwn.png" alt="Screenshot (lipwn)" style="margin-bottom: 20px;" />
 </div>
 
-<div>
-    
-</div>
-
-**liPWN** is a powerful and user-friendly script that integrates leading security tools to simplify web application security assessments. It combines [XSS0rRecon](https://github.com/xss0r/xssorRecon/) for reconnaissance and [loSTools](https://github.com/coffinsp/lostools) for vulnerability scanning into a single streamlined solution.
+<p style="text-align: center;">
+    <strong>liPWN</strong> is a powerful and user-friendly script that integrates leading security tools to simplify web application security assessments. It combines <a href="https://github.com/xss0r/xssorRecon/">XSS0rRecon</a> for reconnaissance and <a href="https://github.com/coffinsp/lostools">loSTools</a> for vulnerability scanning into a single streamlined solution.
+</p>
 
 ## Features
 
@@ -28,3 +26,7 @@ To run the script, use the following command:
 ```bash
 python lipwn.py
 ```
+
+## Disclaimer
+
+lipwn is intended for educational and ethical hacking purposes only. It should only be used to test systems you own or have explicit permission to test. Unauthorized use of third-party websites or systems without consent is illegal and unethical.
