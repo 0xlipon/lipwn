@@ -32,6 +32,12 @@ pip3 install -r requirements.txt
 chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 ```
 
+### Chrome Install
+```bash
+chmod +x install.sh 
+./install.sh
+```
+
 ## Running the Script
 
 To run the script, use the following command:
