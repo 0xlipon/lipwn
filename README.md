@@ -30,5 +30,4 @@ python lipwn.py
 ```
 
 ## Disclaimer
-
-Educational and ethical hacking purposes only. Unauthorized use of third-party websites or systems without consent is illegal and unethical.
+Unauthorized use of third-party websites or systems without consent is illegal and unethical.
