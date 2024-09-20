@@ -34,7 +34,7 @@ chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 
 ### Chrome Install
 ```bash
-chmod +x install.sh 
+chmod +x "$(pwd)/tools/lostools/install.sh"
 ./install.sh
 ```
 
