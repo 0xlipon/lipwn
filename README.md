@@ -29,6 +29,8 @@ pip3 install -r requirements.txt
 
 ### Give permission
 ```bash
+chmod +x "$(pwd)/tools/xss0rRecon/install.sh"
+cd tools/xss0rRecon/ && ./install.sh
 chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 ```
 
