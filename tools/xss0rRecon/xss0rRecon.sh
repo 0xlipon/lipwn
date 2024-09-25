@@ -54,11 +54,13 @@ echo -e "${BOLD_BLUE}"
 echo " __  _____ ___ / _ \ _ __  |  _ \ ___  ___ ___  _ __ " 
 echo " \ \/ / __/ __| | | | '__| | |_) / _ \/ __/ _ \| '_ \ "
 echo "  >  <\__ \__ \ |_| | |    |  _ <  __/ (_| (_) | | | |"
-echo " /_/\_\___/___/\___/|_|    |_| \_\___|\___\___/|_| |_|"                                             
+echo " /_/\_\___/___/\___/|_|    |_| \_\___|\___\___/|_| |_|"
+                                                     
 
 echo -e "${NC}"
 
 # Centered Contact Information
+echo -e "${BOLD_BLUE}                      Website: ibrahimxss.store${NC}"
 echo -e "${BOLD_BLUE}                      X: https://x.com/xss0r${NC}"
 
 # Function to display options
@@ -71,8 +73,164 @@ display_options() {
     echo -e "${YELLOW}5: Filtering all${NC}"
     echo -e "${YELLOW}6: Create new separated file for Arjun & SQLi testing${NC}"
     echo -e "${YELLOW}7: Getting ready for XSS & URLs with query strings${NC}"
-    echo -e "${YELLOW}8: Path-based XSS${NC}"
+    echo -e "${YELLOW}8: xss0r RUN${NC}"
     echo -e "${YELLOW}9: Exit${NC}"
+    echo -e "${YELLOW}10: VPS server xss0r help${NC}"
+    echo -e "${YELLOW}11: Path-based XSS${NC}" # New Option 11 added here
+}
+
+# Function to display VPS server xss0r help information with better formatting and crystal-like color
+show_vps_info() {
+    echo -e "${CYAN}To run xss0r continuously on bug bounty programs and keep it running in the background, a VPS server is highly recommended.${NC}"
+    echo -e "${CYAN}I personally recommend Contabo, which I've been using for the past three years. It has performed reliably without any restrictions.${NC}"
+    echo -e "${CYAN}Additionally, the pricing is very competitive.${NC}\n"
+    
+    echo -e "${CYAN}Here is the link to purchase the Contabo VPS 2 server Debian OS:${NC}"
+    echo -e "${CYAN}Make sure to select under OS settings to be DEBIAN OS 12:${NC}"
+    echo -e "${CYAN}https://contabo.com/en/vps/cloud-vps-2/?image=debian.329&qty=1&contract=1&storage-type=vps2-400-gb-sdd${NC}\n"
+    echo -e "${CYAN}You can select any plan from Contabo Hosting https://contabo.com/en/vps/${NC}\n"
+    
+    echo -e "${CYAN}After completing the purchase, you can expect to receive your credentials via email within 15 minutes to 3 hours.${NC}\n"
+    
+    echo -e "${CYAN}Next, update your VPS and install tmux to allow xss0r to run in the background.${NC}\n"
+    
+    echo -e "${CYAN}Below are the essential tmux commands:${NC}\n"
+    
+    echo -e "${CYAN}#### Start a new tmux session:${NC}"
+    echo -e "${CYAN}apt install tmux                          # Install tmux${NC}"
+    echo -e "${CYAN}tmux new-session -s xss0r                 # Create a new tmux session${NC}"
+    echo -e "${CYAN}tmux attach-session -t xss0r              # Reattach to an existing tmux session from another terminal tab${NC}"
+    echo -e "${CYAN}tmux detach -s xss0r                      # Detach from the tmux session${NC}"
+    echo -e "${CYAN}tmux kill-session -t xss0r                # Terminate the xss0r tmux session${NC}"
+    echo -e "${CYAN}tmux kill-server                          # Terminate all tmux sessions${NC}"
+    echo -e "${CYAN}tmux ls                                   # List all active tmux sessions${NC}\n"
+    
+echo -e "${CYAN}#### Install and Configure Cockpit https://YourVpsIP:9090${NC}"
+echo -e "${CYAN}#### Cockpit it WEB GUI for SSH with many features like Navigator (File Manmager) for quick upload/download files:${NC}"
+echo -e "${CYAN}sudo apt install cockpit cockpit-podman -y  # Install Cockpit and Podman support${NC}"
+echo -e "${CYAN}sudo systemctl start cockpit               # Start Cockpit service${NC}"
+echo -e "${CYAN}sudo systemctl enable cockpit              # Enable Cockpit to start on boot${NC}"
+echo -e "${CYAN}sudo apt install ufw -y                    # Install UFW firewall${NC}"
+echo -e "${CYAN}sudo ufw enable                            # Enable UFW firewall${NC}"
+echo -e "${CYAN}sudo ufw allow 9090                        # Allow Cockpit access on port 9090${NC}"
+echo -e "${CYAN}sudo ufw allow 80                          # Allow HTTP access${NC}"
+echo -e "${CYAN}sudo ufw allow 22                          # Allow SSH access${NC}"
+echo -e "${CYAN}sudo ufw allow 3389                        # Allow RDP access${NC}"
+echo -e "${CYAN}sudo ufw reload                            # Reload UFW rules${NC}\n"
+echo -e "${CYAN}sudo ufw allow 22/tcp                      # Allow ssh over tcp${NC}\n"
+echo -e "${CYAN}sudo ufw allow ssh                         # Allow ssh
+echo -e "${CYAN}#### Configure Cockpit to Allow Unencrypted Access and Root Login:${NC}"
+echo -e "${CYAN}sudo nano /etc/cockpit/cockpit.conf        # Add settings to cockpit.conf${NC}"
+echo -e "${CYAN}[WebService]\nAllowUnencrypted = true\nLogin= root\n" # Configuration content for cockpit.conf
+echo -e "${CYAN}sudo systemctl restart cockpit             # Restart Cockpit service to apply changes${NC}"
+echo -e "${CYAN}sudo apt-get upgrade cockpit               # Upgrade Cockpit${NC}"
+echo -e "${CYAN}sudo nano /etc/cockpit/disallowed-users    # Delete 'root' user from disallowed-users${NC}"
+echo -e "${CYAN}sudo nano /etc/pam.d/cockpit               # Comment pam_listfile.so item=user sense=deny line${NC}"
+echo -e "${CYAN}sudo mkdir -p /etc/cockpit/ws-certs.d      # Create directory for certificates${NC}"
+echo -e "${CYAN}sudo rm /etc/cockpit/ws-certs.d/0-self-signed.cert # Remove self-signed cert${NC}"
+echo -e "${CYAN}sudo systemctl restart cockpit             # Restart Cockpit service${NC}\n"
+
+echo -e "${CYAN}#### Install Cockpit Navigator Plugin & ZIP archive:${NC}"
+echo -e "${CYAN}sudo apt-get install rsync zip  # Install rsync zip${NC}"
+echo -e "${CYAN}sudo apt-get install unzip  # Install unzip ${NC}"
+echo -e "${CYAN}sudo apt-get install p7zip-full  # Install p7zip${NC}"
+echo -e "${CYAN}wget https://github.com/45Drives/cockpit-navigator/releases/download/v0.5.10/cockpit-navigator_0.5.10-1focal_all.deb  # Download Cockpit Navigator${NC}"
+echo -e "${CYAN}sudo dpkg -i cockpit-navigator_0.5.10-1focal_all.deb  # Install Cockpit Navigator${NC}"
+echo -e "${CYAN}Navigate to https://YourVpsIP:9090/navigator  # Access Cockpit Navigator in your browser${NC}\n"
+
+echo -e "${CYAN}#### Install and Configure RDP:${NC}"
+echo -e "${CYAN}sudo apt install xrdp -y                    # Install xrdp for RDP functionality${NC}"
+echo -e "${CYAN}sudo adduser ibrahim                        # Add a new user 'ibrahim'${NC}"
+echo -e "${CYAN}sudo usermod -aG ssl-cert ibrahim           # Add user to ssl-cert group${NC}"
+echo -e "${CYAN}sudo usermod -aG adm ibrahim                # Add user to adm group${NC}"
+echo -e "${CYAN}sudo usermod -aG www-data ibrahim           # Add user to www-data group${NC}"
+echo -e "${CYAN}sudo usermod -aG sudo ibrahim               # Add user to sudo group${NC}"
+echo -e "${CYAN}sudo usermod -aG root ibrahim               # Add user to root group${NC}"
+echo -e "${CYAN}sudo usermod -aG systemd-journal ibrahim    # Add user to systemd-journal group${NC}"
+echo -e "${CYAN}sudo usermod -aG users ibrahim              # Add user to users group${NC}\n"
+
+echo -e "${CYAN}#### Configure Firewall for RDP and SSH:${NC}"
+echo -e "${CYAN}sudo ufw allow 3389/tcp                     # Allow RDP${NC}"
+echo -e "${CYAN}sudo ufw allow 22/tcp                       # Allow SSH${NC}"
+echo -e "${CYAN}sudo ufw reload                             # Reload UFW rules${NC}"
+echo -e "${CYAN}sudo iptables -A INPUT -p tcp --dport 3389 -j ACCEPT  # Allow RDP via iptables${NC}"
+echo -e "${CYAN}sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT    # Allow SSH via iptables${NC}"
+echo -e "${CYAN}sudo systemctl restart xrdp                 # Restart xrdp service${NC}"
+echo -e "${CYAN}sudo systemctl enable xrdp                  # Enable xrdp to start on boot${NC}\n"
+
+echo -e "${CYAN}#### Install and Configure Desktop Environment for RDP or down below you have for Kali Linux (Prefered):${NC}"
+echo -e "${CYAN}sudo apt install gnome -y                   # Install GNOME Desktop Environment${NC}"
+echo -e "${CYAN}sudo apt-get install mate-desktop-environment-extras mate-themes -y  # Install MATE Desktop${NC}"
+echo -e "${CYAN}sudo apt-get install xfce4 xfce4-goodies -y  # Install XFCE Desktop${NC}"
+echo -e "${CYAN}gsettings set org.mate.interface gtk-theme 'Menta'  # Set theme for MATE${NC}"
+echo -e "${CYAN}gsettings set org.gnome.desktop.interface gtk-theme 'Menta'  # Set theme for GNOME${NC}"
+echo -e "${CYAN}xfconf-query -c xsettings -p /Net/ThemeName -s 'Xfce'  # Set theme for XFCE${NC}\n"
+echo -e "${CYAN}sudo reboot                                 # Update changes to VPS server${NC}\n"
+
+echo -e "${CYAN}#### Configure Desktop Session for RDP:${NC}"
+echo -e "${CYAN}echo 'xfce4-session' > ~/.xsession          # Configure XFCE session${NC}"
+echo -e "${CYAN}echo 'gnome-session' > ~/.xsession          # Configure GNOME session${NC}"
+echo -e "${CYAN}chmod 755 /root/.xsession                   # Set permissions for .xsession${NC}"
+echo -e "${CYAN}sudo systemctl restart sshd                 # Restart SSH service${NC}"
+echo -e "${CYAN}sudo ufw allow 3389                         # Ensure RDP is allowed through firewall${NC}"
+echo -e "${CYAN}sudo systemctl restart xrdp                 # Restart xrdp service${NC}"
+echo -e "${CYAN}rdesktop YourVpsIP                          # Connect to VPS via RDP${NC}"
+echo -e "${CYAN}sudo reboot                                 # Reboot system${NC}\n"
+
+echo -e "${CYAN}#### Troubleshooting RDP Issues:${NC}"
+echo -e "${CYAN}If RDP doesn't work, try reconfiguring xrdp:${NC}"
+echo -e "${CYAN}sudo dpkg-reconfigure xrdp                  # Reconfigure xrdp settings${NC}\n"
+
+echo -e "${CYAN}#### Install Kali Linux and Desktop Environment:${NC}"
+echo -e "${CYAN}sudo nano /etc/apt/sources.list             # Add Kali repository to sources.list${NC}"
+echo -e "${CYAN}deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware\n"
+echo -e "${CYAN}wget -q -O - https://archive.kali.org/archive-key.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/kali-archive-keyring.gpg # Import Kali keyring${NC}"
+echo -e "${CYAN}sudo apt update                             # Update package list${NC}"
+echo -e "${CYAN}sudo apt upgrade                            # Upgrade packages${NC}"
+echo -e "${CYAN}sudo apt full-upgrade                       # Full system upgrade${NC}"
+echo -e "${CYAN}sudo apt dist-upgrade                       # Distribution upgrade${NC}"
+echo -e "${CYAN}sudo apt -y install kali-linux-everything   # Install all Kali tools${NC}"
+echo -e "${CYAN}sudo apt install kali-desktop-gnome         # Install Kali GNOME Desktop${NC}"
+echo -e "${CYAN}sudo apt install kali-linux-default         # Install default Kali packages${NC}"
+echo -e "${CYAN}sudo apt update --fix-missing               # Fix missing dependencies${NC}"
+echo -e "${CYAN}sudo apt --fix-broken install               # Fix broken installations${NC}"
+echo -e "${CYAN}sudo dpkg --configure -a                    # Reconfigure dpkg${NC}"
+echo -e "${CYAN}sudo update-alternatives --config x-session-manager  # Configure session manager${NC}"
+echo -e "${CYAN}sudo apt -y install kali-root-login         # Enable root login${NC}"
+echo -e "${CYAN}sudo passwd                                 # Set root password${NC}"
+echo -e "${CYAN}sudo apt autoremove                         # Remove unnecessary packages${NC}"
+echo -e "${CYAN}sudo apt clean                              # Clean up package cache${NC}\n"
+echo -e "${CYAN}sudo reboot                                 # Update changes to VPS server${NC}\n"
+
+echo -e "${CYAN}#### Switching from RDP User to Root:${NC}"
+echo -e "${CYAN}sudo su -                                   # Switch to root user${NC}\n"
+
+echo -e "${CYAN}For more information about VPS configuration, please visit the official Contabo page or reach out to support.${NC}"
+
+
+
+# Steps for installing xss0r on VPS
+echo -e "${CYAN}#### Steps for installing xss0r on VPS:${NC}"
+
+echo -e "${CYAN}1. Install Cockpit                         ${NC} # Install Cockpit for VPS management"
+echo -e "${CYAN}2. Install Debian                          ${NC} # Install the Debian OS"
+echo -e "${CYAN}3. nano /etc/apt/sources.list              ${NC} # Edit source list in Debian OS"
+echo -e "${CYAN}4. deb http://asi-fs-d.contabo.net/debian bookworm main non-free-firmware  ${NC} # Change 'bookworm' to 'testing'"
+echo -e "${CYAN}5. deb-src http://asi-fs-d.contabo.net/debian bookworm main non-free-firmware ${NC} # Change 'bookworm' to 'testing'"
+echo -e "${CYAN}6. Update & Upgrade                        ${NC} # sudo apt install gnome -y"
+echo -e "${CYAN}7. Install Kali OS                         ${NC} # Not needed any changes except updates & upgrades"
+echo -e "${CYAN}8. Upload all files to your VPS            ${NC} # Upload xss0r + xss0rRecon files"
+echo -e "${CYAN}9. chmod +x xss-checker                       ${NC} # Add execute permission to the xss0r tool"
+echo -e "${CYAN}10. chmod +x chromedriver                      ${NC} # Add execute permission to chromedriver"
+echo -e "${CYAN}11. Install required Chrome version from the eBook ${NC} # Install the required Chrome version as outlined in the eBook"
+echo -e "${CYAN}12. Run xss0r and enter API License         ${NC} # Run xss0r tool and enter your API license"
+echo -e "${CYAN}13. Run xss0rRecon and install all tools   ${NC} # Run xss0rRecon and install necessary tools"
+echo -e "${CYAN}14. Ensure all files in the same folder    ${NC} # Make sure all files are inside the same folder"
+echo -e "${CYAN}15. Add --no-sandbox option to Chrome      ${NC} # Add the --no-sandbox option to Google Chrome"
+echo -e "${CYAN}16. Run RDP GUI, launch Chrome, set default browser ${NC} # Run RDP GUI, run Chrome from terminal, set as default and open any site"
+echo -e "${CYAN}17. Exit from RDP GUI and back to Cockpit terminal  ${NC} # Close RDP and back to your terminal"
+echo -e "${CYAN}18. Run xss0r tool                         ${NC} # Launch and run xss0r tool"
+
 }
 
 # Initialize a variable for the domain name
@@ -91,6 +249,7 @@ install_tools() {
     
     show_progress "Installing dependencies"
     sudo apt update
+    sudo apt-mark hold google-chrome-stable
     sudo apt-get install -y rsync zip unzip p7zip-full wget golang-go
     sudo apt-get install terminator
     sudo apt remove python3-structlog
@@ -100,11 +259,11 @@ install_tools() {
 
     # Step 1: Install Python3 virtual environment and structlog in venv
     show_progress "Installing python3-venv and setting up virtual environment"
-    sudo apt install python3-venv
-    python3 -m venv myenv
-    source myenv/bin/activate
-    sudo pip3 install structlog --root-user-action=ignore
-    pip install requests
+    sudo pip install structlog --break-system-packages --root-user-action=ignore
+    sudo pip install requests --break-system-packages --root-user-action=ignore
+    sudo apt install python3-full python3-pip
+    sudo apt install pipx
+    export PATH="$PATH:/root/.local/bin"
     sleep 3
 
     # Step 2: Install the latest version of pip
@@ -115,64 +274,129 @@ install_tools() {
 
     # Step 3: Install Go
     show_progress "Installing Go"
-    wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
-    sudo tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+    wget https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+    sudo tar -C /usr/local -xzf go1.22.5.linux-amd64.tar.gz
     export PATH=$PATH:/usr/local/go/bin
     go version
-    sudo rm -rf go1.23.1.linux-amd64.tar.gz
+    sudo rm -r go1.22.5.linux-amd64.tar.gz
     sleep 3
 
     # Step 4: Install Dnsbruter (Skip if the folder already exists)
-    if [ ! -d "Dnsbruter" ]; then
-        show_progress "Installing Dnsbruter"
-        git clone https://github.com/RevoltSecurities/Dnsbruter.git
-	cd Dnsbruter
-	pip3 install .
-        export PATH=$PATH:/home/kali/.local/bin  # Ensure dnsbruter is found
-        
-        # Install missing dependencies for dnsbruter
-        sudo pip install aiodns==3.1.1 alive-progress==3.1.5 colorama==0.4.6 --root-user-action=ignore
-        sleep 3
+if [ ! -d "Dnsbruter" ]; then
+    show_progress "Installing Dnsbruter"
+
+    # Update and upgrade the system
+    sudo apt update && sudo apt upgrade -y
+
+    # Install Python 3.12
+    sudo apt install python3.12 -y
+
+    # Install pip for Python 3.12
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3.12 get-pip.py
+
+    # Install pipx and ensure it's in the PATH
+    pip install pipx==1.7.1 --break-system-packages --root-user-action=ignore
+    pipx ensurepath
+
+    # Verify Python, pip, and pipx installations
+    python3 --version
+    pip --version
+    pipx --version
+
+    # Install Dnsbruter with pip (no dependencies and force reinstall)
+    sudo pip install --no-deps --force-reinstall --break-system-packages git+https://github.com/RevoltSecurities/Dnsbruter.git
+
+    # Optionally try installing with pipx as well
+    sudo pipx install git+https://github.com/RevoltSecurities/Dnsbruter.git --break-system-packages
+    sudo pipx install dnsbruter --force
+
+    # Clone the repository (optional if you want the source code locally)
+    sudo git clone https://github.com/RevoltSecurities/Dnsbruter.git
+    cd Dnsbruter
+    sudo pip install . --break-system-packages --root-user-action=ignore
+    cd ..
+    sudo rm -r Dnsbruter
+
+    # Ensure that dnsbruter is accessible globally
+    if command -v dnsbruter &> /dev/null; then
+        echo "Dnsbruter is successfully installed and globally available."
     else
-        show_progress "Dnsbruter is already installed. Skipping installation."
+        echo "Dnsbruter installation failed. Please check the installation steps."
     fi
+
+    # Final check to ensure dnsbruter is installed correctly
+    if command -v dnsbruter &> /dev/null; then
+        echo "Dnsbruter is ready to use. You can run 'dnsbruter -h' to confirm."
+        dnsbruter -h
+    else
+        echo "Dnsbruter installation failed. Please check the installation steps."
+    fi
+
+    sleep 3
+else
+    show_progress "Dnsbruter is already installed. Skipping installation."
+fi
 
     # Step 5: Install Subdominator (Skip if the folder already exists)
-    if [ ! -d "Subdominator" ]; then
-        show_progress "Installing Subdominator"
-        sudo pip install git+https://github.com/RevoltSecurities/Subdominator --root-user-action=ignore
-        sleep 3
-    else
-        show_progress "Subdominator is already installed. Skipping installation."
-    fi
-
-    # Step 6: Install Subdominator (Skip if already installed)
+if [ ! -d "Subdominator" ]; then
     show_progress "Installing Subdominator"
 
-    # Install required package aiofiles
-    if ! sudo pip3 install aiofiles; then
-    echo "Failed to install aiofiles."
-    installation_status["subdominator"]="failed"
-    return
-    fi
+    # Install Subdominator directly from the GitHub repository
+    sudo pip install git+https://github.com/RevoltSecurities/Subdominator.git --break-system-packages --root-user-action=ignore
 
-    # Install Subdominator from GitHub
-    if sudo pip3 install git+https://github.com/RevoltSecurities/Subdominator; then
-    echo "Subdominator installed successfully."
-    installation_status["subdominator"]="installed"
-    else
-    echo "Installing Subdominator failed."
-    installation_status["subdominator"]="failed"
-    fi
+    # Clone the repository (optional if you need the source code locally)
+    sudo git clone https://github.com/RevoltSecurities/Subdominator.git
+    cd Subdominator
+
+    # Install from local cloned repository
+    sudo pip install . --break-system-packages --root-user-action=ignore
+
+    # Clean up by removing the cloned directory after installation
+    cd ..
+    sudo sudo rm -r Subdominator
+
+    show_progress "Subdominator installation complete."
+
+    sleep 3
+else
+    show_progress "Subdominator is already installed. Skipping installation."
+fi
+
+    # Step 6: Install SubProber (Skip if the folder already exists)
+if [ ! -d "SubProber" ]; then
+    show_progress "Installing SubProber"
+
+    # Install SubProber directly from the GitHub repository
+    sudo pip install git+https://github.com/RevoltSecurities/Subprober.git --break-system-packages --root-user-action=ignore
+
+    # Clone the repository (optional if you need the source code locally)
+    sudo git clone https://github.com/RevoltSecurities/Subprober.git
+    cd Subprober
+
+    # Install from local cloned repository
+    sudo pip install . --break-system-packages --root-user-action=ignore
+
+    # Clean up by removing the cloned directory after installation
+    cd ..
+    sudo rm -r Subprober
+
+    show_progress "SubProber installation complete."
+
+    sleep 3
+else
+    show_progress "SubProber is already installed. Skipping installation."
+fi
 
     # Step 7: Install GoSpider
     show_progress "Installing GoSpider"
-    sudo go install github.com/jaeles-project/gospider@latest
+    sudo apt install -y gospider
+    GO111MODULE=on sudo go install github.com/jaeles-project/gospider@latest
     sleep 3
 
     # Step 8: Install Hakrawler
     show_progress "Installing Hakrawler"
-    sudo go install github.com/hakluke/hakrawler@latest
+    sudo apt install -y hakrawler
     sleep 3
 
     # Step 9: Install Katana
@@ -205,15 +429,17 @@ install_tools() {
 
     # Step 12: Install Uro
     show_progress "Installing Uro"
-    sudo pip install uro --root-user-action=ignore
+    sudo pip install uro --break-system-packages --root-user-action=ignore
     sudo uro --help  # Ensure Uro runs with sudo
     sleep 3
 
     # Step 13: Install Arjun
     show_progress "Installing Arjun"
     sudo apt install -y arjun
-    sudo pip3 install arjun --root-user-action=ignore
-    sudo pip install alive_progress
+    sudo pip3 install arjun --break-system-packages --root-user-action=ignore
+    sudo pip install alive_progress --break-system-packages --root-user-action=ignore
+    sudo pip install ratelimit --break-system-packages --root-user-action=ignore
+    sudo mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
     sleep 3
 
     # Step 14: Install Tmux
@@ -285,6 +511,31 @@ echo -e "${BOLD_WHITE}Subdominator:${NC} https://github.com/RevoltSecurities/Sub
 # Adding extra space for separation
 echo -e "\n\n"
 
+# Bold blue message surrounded by a rectangle of lines with extra spacing
+echo -e "${BOLD_BLUE}=============================================================================================${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}|  NOTE: To use this tool, you must have the xss-checker tool, which is an XSS detection     |${NC}"
+echo -e "${BOLD_BLUE}|  and exploitation tool for all types of XSS attacks, in the same directory.                |${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}|  Alongside the xss-checker tool, you'll also need two wordlists and a Python reflection    |${NC}"
+echo -e "${BOLD_BLUE}|  detection tool. All of these can be found in any of the XSS plans available on the site.  |${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}|  You can get them by visiting: https://ibrahimxss.store/ and purchasing any plan that      |${NC}"
+echo -e "${BOLD_BLUE}|  fits your needs.                                                                         |${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}|  If you already have a plan, simply copy the xss-checker tool, the wordlists, and the      |${NC}"
+echo -e "${BOLD_BLUE}|  reflection detection tool into the same folder where your xss0rRecon tool is located.     |${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}|  Alternatively, if you don't have a plan or the tools, you can use the PRO plan for free   |${NC}"
+echo -e "${BOLD_BLUE}|  for 5 days each month from the 10th to the 15th.                                         |${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}|  The release of the key is posted on the homepage banner at ibrahimxss.store, but this     |${NC}"
+echo -e "${BOLD_BLUE}|  option is only available for those who have not yet tested the tool.                      |${NC}"
+echo -e "${BOLD_BLUE}|                                                                                           |${NC}"
+echo -e "${BOLD_BLUE}=============================================================================================${NC}"
+
+echo -e "\n\n"
+
 }
 
 
@@ -294,7 +545,7 @@ run_step_3() {
                 
     # Step 1: Passive FUZZ domains with wordlist
     show_progress "Passive FUZZ domains with wordlist"
-    dnsbruter -d "$domain_name" -w wordlists.txt -c 200 -wt 100 -o output-dnsbruter.txt -ws wild.txt || handle_error "dnsbruter"
+    dnsbruter -d "$domain_name" -w subs-dnsbruter-small.txt -c 200 -wt 100 -o output-dnsbruter.txt -ws wild.txt || handle_error "dnsbruter"
     sleep 5
 
     # Step 2: Active brute crawling domains
@@ -357,7 +608,7 @@ run_step_3() {
 
     # Step 7: Filtering ALIVE domain names
     show_progress "Filtering ALIVE domain names"
-    subprober -f "unique-${domain_name}-domains.txt" -sc -ar -o "subprober-${domain_name}-domains.txt" -nc -mc 200 301 302 307 308 403 -c 50 || handle_error "subprober"
+    subprober -f "unique-${domain_name}-domains.txt" -sc -ar -o "subprober-${domain_name}-domains.txt" -nc -mc 200 301 302 307 308 403 401 -c 50 || handle_error "subprober"
     sleep 5
 
     # Step 8: Filtering valid domain names
@@ -780,7 +1031,7 @@ if [ -f "reflection.py" ]; then
 
             # Remove the original xss.txt file
             echo -e "${BOLD_BLUE}Removing the old xss.txt file...${NC}"
-            rm -r xss.txt
+            sudo rm -r xss.txt
             sleep 3
 
             # Removing 99% similar parameters with bash command
@@ -790,7 +1041,7 @@ if [ -f "reflection.py" ]; then
 
             # Remove the intermediate xss1.txt file
             echo -e "${BOLD_BLUE}Removing the intermediate xss1.txt file...${NC}"
-            rm -r xss1.txt
+            sudo rm -r xss1.txt
             sleep 3
 
             # Running URO for xss-urls.txt file
@@ -1000,16 +1251,26 @@ run_path_based_xss() {
 
     echo -e "${CYAN}Intermediate files deleted. Final output is $output_file.${NC}"
 
+    # Step 12: Launch the xss0r tool for path-based XSS testing
+    echo -e "${BOLD_BLUE}Launching the xss0r tool on path-xss-urls.txt...${NC}"
+    ./xss-checker --get --urls path-xss-urls.txt --payloads payloads.txt --threads 9 --shuffle --path
+    if [[ $? -ne 0 ]]; then
+        echo -e "${RED}The xss0r tool encountered an error during execution.${NC}"
+        exit 1
+    else
+        echo -e "${BOLD_GREEN}xss0r tool executed successfully! Check the output for results.${NC}"
+    fi
 }
 
 # Main script logic
 
 while true; do
+    # Display options
     display_options
-    read -p "Enter your choice [1-9]: " choice  # Updated to 1-9
+    read -p "Enter your choice [1-11]: " choice
 
     # Check if the selected option is in the correct order
-    if [[ $choice -ge 2 && $choice -le 8 ]]; then
+    if [[ $choice -ge 2 && $choice -le 8 && $choice -ne 4 ]]; then
         if [[ $choice -gt $((last_completed_option + 1)) ]]; then
             echo -e "${RED}Please respect order one by one from 1-8, you can't skip previous Options${NC}"
             continue
@@ -1026,26 +1287,78 @@ while true; do
             echo -e "${BOLD_WHITE}You selected: Domain name set to $domain_name${NC}"
             last_completed_option=2
             
+            # Automatically proceed to Step 3 after setting the domain name
             read -p "$(echo -e "${BOLD_WHITE}Do you want to proceed with domain enumeration and filtering for $domain_name (Y/N)?: ${NC}")" proceed_to_step_3
-            if [[ "$proceed_to_step_3" =~ ^[Yy]$ ]]; then  # Corrected variable
-                echo -e "${BOLD_BLUE}Automatically continuing with step 3...${NC}"
+            if [[ "$proceed_to_step_3" =~ ^[Yy]$ ]]; then
+                echo -e "${BOLD_BLUE}Automatically continuing with step 3: Enumerate and filter domains for $domain_name...${NC}"
                 run_step_3
                 last_completed_option=3
             else
                 echo -e "${BOLD_WHITE}You can manually start Step 3 whenever you are ready.${NC}"
             fi
             ;;
-        # Other cases...
+        3)
+            if [ -z "$domain_name" ]; then
+                echo "Domain name is not set. Please select option 2 to set the domain name."
+            else
+                run_step_3
+                last_completed_option=3
+            fi
+            ;;
+        4)
+            if [ -z "$domain_name" ]; then
+                echo "Domain name is not set. Please select option 2 to set the domain name."
+            else
+                run_step_4
+                last_completed_option=4
+            fi
+            ;;
+        5)
+            if [ -z "$domain_name" ]; then
+                echo "Domain name is not set. Please select option 2 to set the domain name."
+            else
+                run_step_5
+                last_completed_option=5
+            fi
+            ;;
+        6)
+            if [ -z "$domain_name" ]; then
+                echo "Domain name is not set. Please select option 2 to set the domain name."
+            else
+                run_step_6
+                last_completed_option=6
+            fi
+            ;;
+        7)
+            if [ -z "$domain_name" ]; then
+                echo "Domain name is not set. Please select option 2 to set the domain name."
+            else
+                run_step_7
+                last_completed_option=7
+            fi
+            ;;
         8)
-            run_path_based_xss
-            last_completed_option=8  # Corrected value
+            if [ -z "$domain_name" ]; then
+                echo "Domain name is not set. Please select option 2 to set the domain name."
+            else
+                run_step_8
+                last_completed_option=8
+            fi
             ;;
         9)
             echo "Exiting script."
             exit 0
             ;;
+        10)
+            echo -e "${BOLD_WHITE}You selected: VPS server xss0r help${NC}"
+            show_vps_info
+            ;;
+        11) # Execute Path-based XSS
+            run_path_based_xss
+            last_completed_option=11
+            ;;
         *)
-            echo "Invalid option. Please select a number between 1 and 9."  # Updated range
+            echo "Invalid option. Please select a number between 1 and 11."
             ;;
     esac
 done
