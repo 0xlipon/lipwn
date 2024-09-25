@@ -5,6 +5,40 @@ BOLD_WHITE='\033[1;37m'
 BOLD_CYAN='\033[1;36m'
 NC='\033[0m'  # No Color
 
+# Set Go version and download URL
+GO_VERSION="1.23.1"
+GO_TAR="go${GO_VERSION}.linux-amd64.tar.gz"
+GO_URL="https://golang.org/dl/${GO_TAR}"
+
+# Remove old Go installation if it exists
+if [ -d "/usr/local/go" ]; then
+    echo "Removing old Go installation..."
+    sudo rm -rf /usr/local/go
+fi
+
+# Download the specified version of Go
+echo "Downloading Go version ${GO_VERSION}..."
+wget ${GO_URL}
+
+# Extract the downloaded tarball
+echo "Extracting Go ${GO_VERSION}..."
+sudo tar -C /usr/local -xzf ${GO_TAR}
+
+# Add Go to the PATH
+echo "Updating PATH..."
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
+source ~/.bashrc
+
+# Clean up by removing the downloaded tarball
+echo "Cleaning up..."
+rm ${GO_TAR}
+
+# Verify installation
+echo "Go version installed:"
+go version
+
+echo "Installation completed!"
+
 # List of tools to install
 declare -A tools
 tools=(
