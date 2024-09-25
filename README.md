@@ -35,7 +35,7 @@ chmod +x "$(pwd)/tools/xss0rRecon/xss0rRecon.sh"
 ### Chrome Install
 ```bash
 chmod +x "$(pwd)/tools/lostools/install.sh"
-cd /tools/lostools/ && ./install.sh
+cd tools/lostools/ && ./install.sh
 ```
 
 ## Running the Script
