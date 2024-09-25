@@ -27,7 +27,7 @@ cd lipwn
 pip3 install -r requirements.txt
 ```
 
-### Give permission
+### Setup For xss0rRecon
 ```bash
 chmod +x "$(pwd)/tools/xss0rRecon/install.sh"
 cd tools/xss0rRecon/ && ./install.sh
